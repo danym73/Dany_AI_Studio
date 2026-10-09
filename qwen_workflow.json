@@ -1,0 +1,14 @@
+{
+  \"prompt\": {
+    \"1\": {\"inputs\": {\"unet_name\": \"qwen_image_2.1_int8_convrot.safetensors\", \"weight_dtype\": \"default\"}, \"type\": \"UNETLoader\"},
+    \"2\": {\"inputs\": {\"width\": 1024, \"height\": 1024, \"batch_size\": 1}, \"type\": \"EmptyLatentImage\"},
+    \"3\": {\"inputs\": {\"clip_name\": \"qwen3vl_8b_int8_convrot.safetensors\", \"type\": \"qwen_image\", \"device\": \"default\"}, \"type\": \"CLIPLoader\"},
+    \"4\": {\"inputs\": {\"prompt\": \"portada de álbum musical con título artístico, estilo profesional, iluminación dramática, colores vibrantes, diseño atractivo para música\", \"negative_prompt\": \"\", \"resolution\": 1024, \"clip\": [\"3\", 0]}, \"type\": \"TextEncodeQwenImage21\"},
+    \"5\": {\"inputs\": {\"vae_name\": \"qwen_image_2.1_vae_bf16.safetensors\"}, \"type\": \"VAELoader\"},
+    \"6\": {\"inputs\": {\"samples\": [\"2\", 0], \"vae\": [\"5\", 0]}, \"type\": \"VAEDecode\"},
+    \"7\": {\"inputs\": {\"samples\": [\"6\", 0], \"vae\": [\"5\", 0]}, \"type\": \"VAEDecode\"},
+    \"8\": {\"inputs\": {\"seed\": 447606998181262, \"steps\": 25, \"cfg\": 1, \"sampler_name\": \"euler\", \"scheduler\": \"simple\", \"denoise\": 1, \"model\": [\"1\", 0], \"positive\": [\"4\", 0], \"negative\": [\"4\", 1], \"latent_image\": [\"2\", 0]}, \"type\": \"KSampler\"},
+    \"9\": {\"inputs\": {\"filename_prefix\": \"Qwen_cover_direct\", \"images\": [\"8\", 0]}, \"type\": \"SaveImage\"}
+  },
+  \"client_id\": \"qwen-cover-direct\"
+}

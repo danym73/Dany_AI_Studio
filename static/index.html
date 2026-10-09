@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer">
+  <title>DANY AI STUDIO — Suite Audiovisual Unificada</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="studio-wrapper">
+    <!-- Top Header -->
+    <header class="studio-header">
+      <div class="brand-zone">
+        <div class="brand-logo">
+          <span class="logo-accent">DANY</span> AI STUDIO
+        </div>
+        <span class="brand-badge">UNIFIED SUITE v2.4</span>
+      </div>
+
+      <div class="telemetry-zone">
+        <div class="telemetry-card" id="gpuStatusCard">
+          <div class="telemetry-label">ACELERADOR GRÁFICO</div>
+          <div class="telemetry-value" id="gpuName">Detectando...</div>
+          <div class="telemetry-sub" id="gpuVram">VRAM: -- / -- GB</div>
+        </div>
+        <div class="telemetry-card" id="bridgeStatusCard">
+          <div class="telemetry-label">COLAB DRIVE BRIDGE</div>
+          <div class="telemetry-value" id="bridgeStatus">Verificando...</div>
+          <div class="telemetry-sub" id="bridgePath">G:\Mi unidad\Produccion_Musical...</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="studio-nav">
+      <button class="nav-btn active" data-tab="tab-music">🎵 Estudio Musical (ACE-Step 1.5)</button>
+      <button class="nav-btn" data-tab="tab-video">🎬 Estudio Visual: Portadas & Vídeo IA</button>
+      <button class="nav-btn" data-tab="tab-colab">☁️ Colab Cloud Bridge</button>
+      <button class="nav-btn" data-tab="tab-master">🎛️ Master EBU R128 & Shorts</button>
+      <button class="nav-btn" data-tab="tab-models">⚙️ Modelos & Guía Rápida</button>
+      <button class="nav-btn" data-tab="tab-yue2">🎵 YuE2 (Lyrics-to-Song)</button>
+    </nav>
+
+    <!-- Main Content Panels -->
+    <main class="studio-main">
+
+      <!-- TAB 1: MUSIC PRODUCTION (ACE-STEP 1.5) -->
+      <section class="tab-panel active" id="tab-music">
+        <div class="panel-grid">
+          <div class="card card-form">
+            <h2 class="card-title">Compositor & Generador de Audio</h2>
+            <div class="ai-copilot-card">
+              <div class="copilot-header">
+                <span class="copilot-icon">🤖</span>
+                <div>
+                  <h3 class="copilot-title">Agente Copiloto IA Creativo</h3>
+                  <p class="copilot-desc">Escribe tu idea y la IA generará el título, la fórmula maestra del prompt, la letra estructurada y el vídeo automáticamente.</p>
+                </div>
+              </div>
+              <div class="copilot-input-row">
+                <input type="text" id="aiIdeaInput" class="input-field" placeholder="ej: Balada de desamor en carretera de noche con dobro y acústica...">
+                <button class="btn btn-primary" id="btnRunAICopilot">✨ Componer con IA</button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="trackTitle">Título de la Pista (sin espacios):</label>
+              <input type="text" id="trackTitle" class="input-field" placeholder="ej: devils_train_southern_rock" value="nuevo_lanzamiento_rock">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="musicEngine">Motor DiT (todos los modelos):</label>
+                <select id="musicEngine" class="select-field">
+                  <option value="acestep-v15-xl-turbo" selected>ACE-Step 1.5 XL-Turbo (4B DiT - Recomendado: claridad cristalina y cero grano)</option>
+                  <option value="acestep-v15-xl-sft">ACE-Step 1.5 XL-SFT (4B DiT - Calidad pura Text2Music)</option>
+                  <option value="acestep-v15-turbo">ACE-Step 1.5 Turbo (2B DiT - compatible con LoRAs 2048)</option>&#10;                  <option value="acestep-v15-base">ACE-Step 1.5 Base (1.4B DiT - Modelo fundamental)</option>&#10;                  <option value="acestep-5Hz-lm-0.6B">ACE-Step 5Hz LM 0.6B (Modelo eficiente para generación rápida)</option>&#10;                  <option value="acestep-5Hz-lm-1.7B">ACE-Step 5Hz LM 1.7B (Balance calidad/velocidad)</option>&#10;                  <option value="acestep-5Hz-lm-4B">ACE-Step 5Hz LM 4B (Alta calidad con eficiencia)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="musicDuration">Duración Dinámica (minutos):</label>
+                <select id="musicDuration" class="select-field">
+                  <option value="195.0">3:15 min (195 seg)</option>
+                  <option value="200.0" selected>3:20 min (200 seg - Recomendado)</option>
+                  <option value="215.0">3:35 min (215 seg)</option>
+                  <option value="228.0">3:48 min (228 seg)</option>
+                  <option value="240.0">4:00 min (240 seg)</option>
+                  <option value="253.0">4:13 min (253 seg)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="loraPreset">Preset LoRA Integrado:</label>
+                <select id="loraPreset" class="select-field">
+                  <option value="michael_bennett" selected>Michael Bennett (Acoustic Narrative Soul / Southern Baritone)</option>
+                  <option value="roti-r0kkk">Dark Alternative Rock (Gothic Rock / Distorted Grunge)</option>
+                  <option value="deep horizon">Deep Horizon (Melodic Deep House / Slap Bass 50Hz)</option>
+                  <option value="none">Sin LoRA (Estilo Puro Base)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="loraScale">Escala LoRA (0.60 - 1.00):</label>
+                <input type="number" id="loraScale" class="input-field" min="0.5" max="1.2" step="0.05" value="1.0">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="musicCaption">Fórmula Maestra de Prompt (Caption):</label>
+              <textarea id="musicCaption" class="textarea-field" rows="3" placeholder="[trigger LoRA] + [género] + [voz] + [instrumentos] + [atmósfera]..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="musicLyrics">Letra Estructurada (100% limpia sin acotaciones técnicas):</label>
+              <textarea id="musicLyrics" class="textarea-field" rows="6" placeholder="[Intro]&#10;[Verse 1]&#10;...&#10;[Chorus]&#10;..."></textarea>
+            </div>
+
+            <div class="btn-group">
+              <button class="btn btn-primary" id="btnBuildMusicConfig">⚙️ Generar Configuración TOML</button>
+              <button class="btn btn-secondary" id="btnCopyMusicCLI">📋 Copiar Comando CLI</button>
+            </div>
+            <div class="btn-group">
+              <button class="btn btn-accent" id="btnRunAcestepNow" disabled>▶️ Ejecutar Ahora (ACE-Step Local)</button>
+            </div>
+          </div>
+
+          <div class="card card-preview">
+            <h2 class="card-title">Monitor de Ejecución & Normas</h2>
+            <div class="rules-box">
+              <div class="rule-item"><span>✅</span> <strong>Cero Nombres</strong> en títulos y portadas.</div>
+              <div class="rule-item"><span>✅</span> <strong>Letras Limpias</strong>: Cero BPM o instrumentos en letras cantadas.</div>
+              <div class="rule-item"><span>✅</span> <strong>Masterización</strong>: -11.0 LUFS EBU R128 automática.</div>
+            </div>
+
+            <div class="terminal-box" id="musicTerminal">
+              <div class="terminal-header">Terminal de Salida Local</div>
+              <pre id="musicOutput">[INFO] Dany AI Studio listo. Esperando configuración...</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- v2.2: Biblioteca de Audio (reproducir pistas ya generadas dentro de la app) -->
+        <div class="card library-card">
+          <h2 class="card-title">🎧 Biblioteca de Audio</h2>
+          <p class="card-desc">Reproduce aquí cualquier pista ya generada o masterizada, sin salir del navegador (busca en tus carpetas de salida configuradas).</p>
+
+          <div class="form-row">
+            <div class="form-group" style="grid-column: 1 / -1;">
+              <label for="audioTrackSelect">Pistas encontradas (más reciente primero):</label>
+              <select id="audioTrackSelect" class="select-field"></select>
+            </div>
+          </div>
+
+          <div class="btn-group" style="margin-top: 0;">
+            <button class="btn btn-secondary" id="btnRefreshAudioLibrary">🔄 Actualizar Lista</button>
+            <button class="btn btn-accent" id="btnMasterSelectedTrack">🎛️ Masterizar esta pista</button>
+            <button class="btn btn-secondary" id="btnMasterLocalFile">📂 Elegir archivo y masterizar</button>
+            <button class="btn btn-secondary" id="btnUseTrackForVideo" style="display:none;">🎬 Usar para generar vídeo</button>
+          </div>
+          <input id="audioMasterFileInput" type="file" accept=".mp3,.wav,.flac,.m4a,.ogg,.aac,.wma,.opus" hidden>
+          <div class="player-meta" id="audioLibraryStatus" aria-live="polite"></div>
+          <div class="player-meta" id="audioMasterStatus"></div>
+
+          <div class="player-box">
+            <audio id="audioPlayer" controls preload="none"></audio>
+            <div class="player-meta" id="audioPlayerMeta">Selecciona una pista para reproducirla.</div>
+          </div>
+        </div>
+      </section>
+
+            <!-- TAB 2: VISUAL STUDIO (KREA-2 TURBO COVERS & LTX-2.5 CINEMATIC VIDEO) -->
+      <section class="tab-panel" id="tab-video">
+        <div class="panel-grid">
+          <!-- CARD A: KREA-2 TURBO COVER GENERATOR -->
+          <div class="card card-form">
+            <h2 class="card-title">🖼️ Generador de Portadas IA — Krea-2 Turbo</h2>
+            <p class="card-desc">Crea portadas y arte visual con <strong>Krea-2 Turbo</strong> en ComfyUI local. Ultrarrápido en RTX 5080 con upscaling ESRGAN 4x y expansión de prompt Qwen3-VL.</p>
+
+            <div class="form-group">
+              <label for="coverIdea">Idea, Título o Prompt Visual:</label>
+              <textarea id="coverIdea" class="textarea-field" rows="3" placeholder="ej: Portada de álbum cinematográfica de rock outlaw, coche clásico americano bajo lluvia nocturna con luces de neón cian y ámbar"></textarea>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="coverGenre">Género / Temática:</label>
+                <select id="coverGenre" class="select-field">
+                  <option value="auto" selected>Auto (según idea)</option>
+                  <option value="rock">Rock / Hard Rock / Ballad</option>
+                  <option value="electronic">Electronic / Synthwave / House</option>
+                  <option value="acoustic">Acoustic / Southern / Folk</option>
+                  <option value="metal">Metal / Heavy / Dark</option>
+                  <option value="hip_hop">Hip Hop / Urban</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="coverAspect">Formato de Portada:</label>
+                <select id="coverAspect" class="select-field">
+                  <option value="square" selected>1:1 Cuadrado (1024×1024 - Portada Oficial)</option>
+                  <option value="horizontal">16:9 Horizontal (1376×768 - YouTube Oficial / Cine)</option>
+                  <option value="vertical">9:16 Vertical (768×1376 - Shorts / TikTok)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="coverGuidance">Guidance (CFG):</label>
+                <input type="number" id="coverGuidance" class="input-field" min="1" max="8" step="0.5" value="1.0">
+              </div>
+              <div class="form-group">
+                <label for="coverSteps">Pasos KSampler:</label>
+                <input type="number" id="coverSteps" class="input-field" min="4" max="50" step="1" value="8">
+              </div>
+              <div class="form-group">
+                <label for="coverSeed">Semilla:</label>
+                <input type="number" id="coverSeed" class="input-field" placeholder="Aleatoria">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="inline-check">
+                <input type="checkbox" id="coverUseLLM" checked>
+                Refinar y enriquecer prompt con IA (Qwen3-VL Thinking)
+              </label>
+            </div>
+
+            <div class="btn-group">
+              <button class="btn btn-primary" id="btnGenerateCover">🖼️ Generar Portada (Krea-2 Turbo)</button>
+              <button class="btn btn-secondary" id="btnCoverRefresh">🔄 Refrescar</button>
+            </div>
+
+            <div class="terminal-box" id="coverTerminal">
+              <div class="terminal-header">Estado Generador de Portadas ComfyUI (Krea-2 Turbo)</div>
+              <pre id="coverOutput">[INFO] Listo. Ingresa una idea y pulsa «Generar Portada (Krea-2 Turbo)».</pre>
+            </div>
+
+            <!-- GALERÍA / BIBLIOTECA DE PORTADAS GUARDADAS -->
+            <div class="form-group" style="margin-top:14px;">
+              <label for="coverLibrarySelect">📚 Galería de Portadas Guardadas:</label>
+              <div class="input-with-button">
+                <select id="coverLibrarySelect" class="select-field">
+                  <option value="">Cargando portadas...</option>
+                </select>
+                <button type="button" class="btn btn-secondary" id="btnRefreshCoverLibrary" title="Refrescar lista de portadas">🔄</button>
+              </div>
+            </div>
+
+            <div class="player-box" id="coverPreviewContainer" style="display:block; text-align:center;">
+              <img id="coverPreviewImg" src="" alt="Portada generada" style="max-width:100%; max-height:360px; border-radius:8px; box-shadow:0 4px 20px rgba(0,247,255,0.2); margin-top:8px;">
+              <div class="player-meta" id="coverPreviewMeta">Selecciona una portada de la lista o genera una nueva.</div>
+              <div class="btn-group" style="margin-top:10px; justify-content:center;">
+                <a id="coverDownloadLink" href="" download="portada.png" class="btn btn-secondary" style="display:inline-block; text-decoration:none;">💾 Descargar Imagen</a>
+                <button class="btn btn-accent" id="btnUseAsVideoInit">🎬 Usar esta Portada como Imagen Inicial para Vídeo</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD B: CINEMATIC VIDEO GENERATOR -->
+          <div class="card card-form">
+            <h2 class="card-title">🎬 Director de Vídeo Cinemático</h2>
+            <p class="card-desc">Genera clips en movimiento real con <strong>LTX-2.5 22B (Distilled INT8 ConvRot)</strong> — 35 segundos en RTX 5080 con cero grano ni cuelgues.</p>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="videoEngine">Motor de Vídeo:</label>
+                <select id="videoEngine" class="select-field">
+                  <option value="ltx-2.5" selected>LTX-2.5 22B Distilled (INT8 ConvRot - 35s en RTX 5080 - RECOMENDADO)</option>
+                  <option value="minimax_h3">MiniMax H3 (Multi-Reference - Pesado)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="videoAspect">Formato del Vídeo:</label>
+                <select id="videoAspect" class="select-field">
+                  <option value="9:16" selected>9:16 Vertical (Shorts / Reels / TikTok)</option>
+                  <option value="16:9">16:9 Horizontal (YouTube Pantalla Completa)</option>
+                  <option value="1:1">1:1 Cuadrado</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="videoDuration">Duración:</label>
+                <select id="videoDuration" class="select-field">
+                  <option value="2" selected>2 segundos (49 frames - Ultrarrápido para test/loops)</option>
+                  <option value="4">4 segundos (97 frames - Plano medio)</option>
+                  <option value="6">6 segundos (145 frames - Escena completa)</option>
+                  <option value="8">8 segundos (193 frames - Escena larga)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="refAudioSelect">🎵 Audio de referencia (opcional):</label>
+                <select id="refAudioSelect" class="select-field">
+                  <option value="">Ninguno (sin condicionar por audio)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="videoInitialImage">🖼️ Imagen Inicial (Image-to-Video, opcional):</label>
+              <div style="display:flex; gap:8px;">
+                <input type="text" id="videoInitialImage" class="input-field" placeholder="Ruta de portada generada o déjalo vacío para Text-to-Video puro">
+                <button type="button" class="btn btn-secondary" id="btnClearInitImage" title="Limpiar imagen">✖</button>
+              </div>
+              <div id="videoInitImgPreviewContainer" style="display:none; margin-top:8px; text-align:center;">
+                <img id="videoInitImgPreview" src="" alt="Imagen inicial para vídeo" style="max-height:140px; border-radius:6px; border:1px solid #00f7ff; box-shadow:0 2px 10px rgba(0,247,255,0.25);">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="videoPrompt">Prompt de Movimiento Cinemático:</label>
+              <textarea id="videoPrompt" class="textarea-field" rows="3" placeholder="ej: cinematic moving shot, muscle car drifting through neon wet asphalt in the rain, camera slowly tracking sideways, volumetric street lights, 8k realistic reflections"></textarea>
+            </div>
+
+            <div class="btn-group">
+              <button class="btn btn-secondary" id="btnAiVideoPrompt">🤖 Generar Prompt con IA</button>
+              <button class="btn btn-primary" id="btnGenerateVideoNow">🎬 Generar Vídeo Cinemático (ComfyUI)</button>
+              <button class="btn btn-accent" id="btnOpenComfy">🚀 Abrir ComfyUI (8188)</button>
+            </div>
+
+            <div class="terminal-box" id="videoTerminal">
+              <div class="terminal-header">Monitor de Vídeo ComfyUI (127.0.0.1:8188)</div>
+              <pre id="videoOutput">[INFO] Listo. Selecciona LTX-2.5 22B o MiniMax H3 y pulsa «Generar Vídeo Cinemático».</pre>
+            </div>
+
+            <div class="player-box">
+              <video id="videoPlayer" controls preload="none" style="width:100%; max-height:360px; border-radius:8px;"></video>
+              <div class="player-meta" id="videoPlayerMeta">Aún no se ha generado ningún vídeo en esta sesión.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECCIÓN 3: SHORT COMPLETO MULTI-ESCENA -->
+        <div class="card" style="margin-top:20px;">
+          <h2 class="card-title">🎬 Short Completo (Varias Escenas Encadenadas)</h2>
+          <p class="card-desc">Trocea la idea en 2-6 planos cortos, genera cada uno con IA y los concatena en un solo Short con FFmpeg con el audio sincronizado.</p>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="sceneCount">Número de escenas:</label>
+              <select id="sceneCount" class="select-field">
+                <option value="2">2 escenas</option>
+                <option value="3">3 escenas</option>
+                <option value="4" selected>4 escenas</option>
+                <option value="5">5 escenas</option>
+                <option value="6">6 escenas</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="sceneSeconds">Duración por escena:</label>
+              <select id="sceneSeconds" class="select-field">
+                <option value="2" selected>2 segundos (rápido LTX)</option>
+                <option value="4">4 segundos</option>
+                <option value="6">6 segundos</option>
+                <option value="8">8 segundos</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="inline-check">
+              <input type="checkbox" id="useRealAudioInShort" checked>
+              Usar la canción de referencia como audio final del Short
+            </label>
+          </div>
+          <div class="btn-group">
+            <button class="btn btn-secondary" id="btnPlanScenes">🤖 Planificar Escenas con IA</button>
+            <button class="btn btn-primary" id="btnGenerateShort" disabled>🎬 Generar Short Completo</button>
+          </div>
+          <div id="scenesContainer"></div>
+          <div class="terminal-box" id="shortTerminal" style="margin-top:10px;">
+            <div class="terminal-header">Estado del Short Completo</div>
+            <pre id="shortOutput">[INFO] Planifica las escenas primero.</pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 3: COLAB CLOUD BRIDGE -->
+      <section class="tab-panel" id="tab-colab">
+        <div class="card">
+          <h2 class="card-title">Despachador Remoto Colab Drive Bridge</h2>
+          <p class="card-desc">Offload automático: Envía trabajos pesados de render de vídeo LTX o entrenamientos LoRA a Google Colab usando Google Drive como puente.</p>
+
+          <p class="card-desc" id="colabPolicyHint"></p>
+
+          <div class="colab-status-banner" id="colabBanner">
+            <span>📡 Puente Google Drive:</span> <strong id="colabStatusText">Detectando carpeta...</strong>
+          </div>
+
+          <div class="form-group">
+            <label for="colabCommand">Comando para Google Colab (python3 /ruta/script.py --argumentos):</label>
+            <textarea id="colabCommand" class="textarea-field" rows="3" placeholder="python3 /content/render_heavy_ltx.py --prompt ..."></textarea>
+          </div>
+
+          <div class="btn-group">
+            <button class="btn btn-primary" id="btnDispatchColab">📤 Enviar Trabajo a Google Colab</button>
+            <button class="btn btn-secondary" id="btnRefreshColabJobs">🔄 Actualizar Cola de Trabajos</button>
+          </div>
+
+          <h3 class="section-subtitle">Cola de Trabajos Recientes (Google Drive):</h3>
+          <div class="jobs-list" id="colabJobsList">
+            <em>Cargando lista de trabajos...</em>
+          </div>
+
+          <h3 class="section-subtitle">Consola de Log en Vivo desde Colab:</h3>
+          <div class="terminal-box">
+            <pre id="colabLogOutput">Selecciona un trabajo para ver su progreso en streaming...</pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 4: MASTERING & SHORTS -->
+      <section class="tab-panel" id="tab-master">
+        <div class="panel-grid">
+          <div class="card card-form">
+            <h2 class="card-title">Masterización EBU R128 (-11.0 LUFS)</h2>
+            <p class="card-desc">Normalización broadcast de 2 pasadas con limitador True Peak a -0.5 dBTP y exportación a 320 kbps.</p>
+
+            <div class="form-group">
+              <label for="masterInputFile">Ruta completa del audio a masterizar (dentro de las carpetas permitidas):</label>
+              <input type="text" id="masterInputFile" class="input-field" placeholder="C:\Users\danin\Music\Nuevas_Producciones_Agente\cancion.mp3">
+            </div>
+
+            <div class="btn-group">
+              <button class="btn btn-primary" id="btnExecuteMaster">🎛️ Masterizar a -11.0 LUFS con FFmpeg</button>
+            </div>
+
+            <div class="terminal-box" id="masterTerminal" style="margin-top: 20px;">
+              <pre id="masterLog">Esperando archivo de entrada...</pre>
+            </div>
+          </div>
+
+          <div class="card card-preview">
+            <h2 class="card-title">Sincronización Dual de Shorts 9:16</h2>
+            <p class="card-desc">Copia automáticamente cualquier Short de 30s a ambas carpetas del canal:</p>
+            <ul class="path-list">
+              <li>📁 <code>C:\Users\danin\Music\canal you.m.d\Shorts_9x16\</code></li>
+              <li>📁 <code>C:\Users\danin\Music\Videos\Shorts\</code></li>
+            </ul>
+            <div class="rules-box">
+              <div class="rule-item"><span>▶</span> <strong>CTA Obligatorio</strong> en pantalla: <code>▶ VÍDEO COMPLETO EN EL CANAL</code></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 5: MODELS & GUIDE -->
+      <section class="tab-panel" id="tab-models">
+        <div class="card">
+          <h2 class="card-title">Gestión de Modelos & Guía para la Comunidad</h2>
+          <p class="card-desc">Instrucciones y enlaces para ejecutar la suite en cualquier PC de forma totalmente gratuita.</p>
+
+          <div class="guide-grid">
+            <div class="guide-card">
+              <h3>1. Si tienes GPU Potente ($\ge$ 12GB)</h3>
+              <p>Puedes ejecutar todo en local a máxima velocidad:</p>
+              <ul>
+                <li><strong>ACE-Step 1.5 XL-Turbo</strong> (4B) para música en 5-10s.</li>
+                <li><strong>ComfyUI + LTX-2.5</strong> para renderizar clips cinemáticos.</li>
+                <li><strong>DLSS 5 Enhancer</strong> para escalado y reconstrucción neuronal.</li>
+              </ul>
+            </div>
+
+            <div class="guide-card">
+              <h3>2. Si tienes PC Básico o Portátil</h3>
+              <p>Utiliza el <strong>Colab Cloud Bridge</strong> incluido:</p>
+              <ul>
+                <li>Abre el cuaderno <code>Produccion_Audiovisual_Colab_Bridge.ipynb</code> en Google Colab con 1 clic.</li>
+                <li>Colab se encarga de la inferencia pesada gratis en la nube.</li>
+                <li>Los vídeos y audios se sincronizan directamente en tu Google Drive.</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3 class="section-subtitle">Conexión Manual de Modelo (LLM) para el Copiloto IA:</h3>
+          <div class="llm-panel">
+            <p class="card-desc">Conecta tu propio modelo: <strong>Ollama</strong> o cualquier servidor compatible con OpenAI (LM Studio, llama.cpp, vLLM, OpenRouter...). Tú eliges el modelo; si falla o está desactivado, el compositor usa las plantillas de respaldo.</p>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="llmProvider">Tipo de servidor:</label>
+                <select id="llmProvider" class="select-field">
+                  <option value="ollama" selected>Ollama (Local - RTX 5080)</option>
+                  <option value="nim">NVIDIA NIM (Cloud Oficial - Nemotron, Llama, Ultra)</option>
+                  <option value="openai">Compatible OpenAI (LM Studio, llama.cpp, vLLM...)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="llmBaseUrl">URL base:</label>
+                <input type="text" id="llmBaseUrl" class="input-field" placeholder="http://127.0.0.1:11434" value="http://127.0.0.1:11434">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="llmModel">Modelo (escríbelo o pulsa «Detectar»):</label>
+                <input type="text" id="llmModel" class="input-field" list="llmModelList" placeholder="ej: gemma4:latest" autocomplete="off">
+                <datalist id="llmModelList"></datalist>
+              </div>
+              <div class="form-group">
+                <label for="llmTemperature">Temperatura (0 - 2):</label>
+                <input type="number" id="llmTemperature" class="input-field" min="0" max="2" step="0.1" value="0.8">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="llmApiKey">API key (opcional):</label>
+              <input type="password" id="llmApiKey" class="input-field" autocomplete="off" placeholder="solo si tu servidor la exige">
+            </div>
+
+            <div class="form-group">
+              <label class="inline-check"><input type="checkbox" id="llmEnabled"> Usar este modelo en el Copiloto IA</label>
+            </div>
+
+            <div class="btn-group">
+              <button class="btn btn-secondary" id="btnLlmDetect">🔍 Detectar modelos</button>
+              <button class="btn btn-secondary" id="btnLlmTest">🧪 Probar conexión</button>
+              <button class="btn btn-primary" id="btnLlmSave">💾 Guardar</button>
+            </div>
+
+            <div class="terminal-box" style="margin-top: 16px;">
+              <pre id="llmStatus">Cargando configuración...</pre>
+            </div>
+          </div>
+
+          <h3 class="section-subtitle">Modelos ACE-Step 1.5 y otras descargas oficiales:</h3>
+          <div class="models-table-wrapper">
+            <table class="models-table">
+              <thead>
+                <tr>
+                  <th>Modelo</th>
+                  <th>Uso</th>
+                  <th>Tamaño</th>
+                  <th>Enlace Oficial</th>
+                  <th>Estado local</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>acestep-v15-base</strong></td>
+                  <td>DiT Base</td>
+                  <td>~4.79 GB</td>
+                  <td><a href="https://huggingface.co/ACE-Step/acestep-v15-base" target="_blank">Hugging Face</a></td>
+                  <td>✅ Descargado</td>
+                </tr>
+                <tr>
+                  <td><strong>acestep-v15-xl-turbo</strong></td>
+                  <td>DiT 4B Música</td>
+                  <td>~18.58 GB</td>
+                  <td><a href="https://huggingface.co/ACE-Step/Ace-Step1.5" target="_blank">Hugging Face</a></td>
+                  <td>✅ Descargado</td>
+                </tr>
+                <tr>
+                  <td><strong>acestep-v15-turbo</strong></td>
+                  <td>DiT 2B Rápido</td>
+                  <td>~4.46 GB</td>
+                  <td><a href="https://huggingface.co/ACE-Step/Ace-Step1.5" target="_blank">Hugging Face</a></td>
+                  <td>✅ Descargado</td>
+                </tr>
+                <tr>
+                  <td><strong>acestep-v15-xl-sft</strong></td>
+                  <td>DiT 4B SFT</td>
+                  <td>~18.58 GB</td>
+                  <td><a href="https://huggingface.co/ACE-Step/Ace-Step1.5" target="_blank">Hugging Face</a></td>
+                  <td>✅ Descargado</td>
+                </tr>
+                <tr>
+                  <td><strong>acestep-5Hz-lm-0.6B</strong></td>
+                  <td>LM Qwen3 0.6B</td>
+                  <td>~1.23 GB</td>
+                  <td><a href="https://huggingface.co/ACE-Step/acestep-5Hz-lm-0.6B" target="_blank">Hugging Face</a></td>
+                  <td>✅ Descargado</td>
+                </tr>
+                <tr>
+                  <td><strong>acestep-5Hz-lm-1.7B</strong></td>
+                  <td>LM Qwen3 1.7B</td>
+                  <td>~3.45 GB</td>
+                  <td><a href="https://huggingface.co/ACE-Step/acestep-5Hz-lm-1.7B" target="_blank">Hugging Face</a></td>
+                  <td>✅ Descargado</td>
+                </tr>
+                <tr>
+                  <td><strong>acestep-5Hz-lm-4B</strong></td>
+                  <td>LM Qwen3 4B</td>
+                  <td>~7.80 GB</td>
+                  <td><a href="https://huggingface.co/ACE-Step/acestep-5Hz-lm-4B" target="_blank">Hugging Face</a></td>
+                  <td>✅ Descargado</td>
+                </tr>
+                <tr>
+                  <td><strong>Qwen3-Embedding-0.6B</strong></td>
+                  <td>Componente auxiliar de embeddings</td>
+                  <td>~1.11 GB</td>
+                  <td><a href="https://huggingface.co/Qwen/Qwen3-Embedding-0.6B" target="_blank">Qwen (Hugging Face)</a></td>
+                  <td>✅ Descargado</td>
+                </tr>
+                <tr>
+                  <td><strong>ACE-Step VAE</strong></td>
+                  <td>Componente de decodificación de audio</td>
+                  <td>~0.31 GB</td>
+                  <td><a href="https://huggingface.co/ACE-Step/Ace-Step1.5" target="_blank">Hugging Face</a></td>
+                  <td>✅ Descargado</td>
+                </tr>
+                <tr>
+                  <td><strong>LTX-2.5 22B Distilled</strong></td>
+                  <td>Vídeo Cinemático</td>
+                  <td>~39 GB</td>
+                  <td><a href="https://huggingface.co/Lightricks/LTX-Video" target="_blank">Lightricks LTX</a></td>
+                  <td>Sin comprobar</td>
+                </tr>
+                <tr>
+                  <td><strong>MiniMax H3 (ref2va + CLIP + VAEs)</strong></td>
+                  <td>Vídeo 9:16 + Audio Sincronizado</td>
+                  <td>~variable</td>
+                  <td><a href="https://huggingface.co/Comfy-Org/MiniMax-H3" target="_blank">Comfy-Org (Hugging Face)</a></td>
+                  <td>Sin comprobar</td>
+                </tr>
+                <tr>
+                  <td><strong>DLSS 5 Visual Enhancer</strong></td>
+                  <td>Escalador Neuronal</td>
+                  <td>~467 MB</td>
+                  <td><a href="https://github.com/Blueforcer/ComfyUI-DLSS5-Enhancer" target="_blank">GitHub Node</a></td>
+                  <td>Sin comprobar</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+<!-- TAB 6: YUE2 (LYRICS-TO-SONG) -->
+      <section class="tab-panel" id="tab-yue2">
+        <div class="panel-grid">
+          <div class="card card-form">
+            <h2 class="card-title">🎵 YuE2 — Generación Lyrics-to-Song (FP8 16GB)</h2>
+            <div class="form-group">
+              <label>Estado del motor YuE2:</label>
+              <div id="yue2Status" class="status-box">Comprobando…</div>
+            </div>
+
+            <!-- COPILOTO IA YUE2 -->
+            <div class="ai-box" style="margin-bottom:18px; padding:16px; border:1px solid rgba(0, 247, 255, 0.25); border-radius:8px; background:rgba(0, 247, 255, 0.03);">
+              <h3 class="section-subtitle" style="margin-top:0; color:#00f7ff; display:flex; align-items:center; gap:8px;">
+                <span>✨</span> Copiloto IA para YuE 2 (Generar Estilo y Letra)
+              </h3>
+              <p class="card-desc" style="font-size:0.88rem; margin-bottom:10px;">Escribe una idea o historia. El modelo activo (NVIDIA NIM u Ollama) generará el prompt de estilo musical exacto para YuE 2 y la letra estructurada completa lista para cantar.</p>
+              <div class="form-group">
+                <label for="yue2AiIdea">Idea o temática musical:</label>
+                <input type="text" id="yue2AiIdea" class="input-field" placeholder="ej: Balada rock de medianoche sobre un viaje sin retorno en carretera">
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="yue2AiGenre">Vibra / Género:</label>
+                  <select id="yue2AiGenre" class="select-field">
+                    <option value="auto" selected>Auto (según idea)</option>
+                    <option value="southern_rock">Southern Rock / Country Outlaw</option>
+                    <option value="dark_house">Dark Deep House / Hypnotic Club</option>
+                    <option value="power_ballad">Power Rock Ballad / Soul</option>
+                    <option value="metal_grunge">Alternative Rock / Grunge</option>
+                    <option value="synthwave">Retro Synthwave 80s</option>
+                    <option value="flamenco_fusion">Flamenco Chill / Acoustic</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="yue2AiLang">Idioma:</label>
+                  <select id="yue2AiLang" class="select-field">
+                    <option value="es" selected>Español</option>
+                    <option value="en">English</option>
+                    <option value="instrumental">Solo Instrumental (sin voz)</option>
+                  </select>
+                </div>
+              </div>
+              <div class="btn-group" style="margin-top:8px;">
+                <button class="btn btn-secondary" id="btnYue2AiCompose" type="button">✨ Generar Estilo y Letra con IA</button>
+                <button class="btn btn-primary" id="btnYue2AiComposeAndRun" type="button">🚀 Generar con IA y Lanzar YuE2</button>
+              </div>
+              <div id="yue2AiStatus" class="status-box" style="margin-top:10px; display:none; white-space:pre-wrap;"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="yue2Style">Estilo Musical (género, instrumentos, voz, idioma, BPM):</label>
+              <textarea id="yue2Style" class="textarea-field" rows="3" placeholder="ej: English, epic southern rock, powerful gritty male vocal, electric guitar, stomping drums, 137 BPM"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="yue2Lyrics">Letra (el modelo la canta completa):</label>
+              <textarea id="yue2Lyrics" class="textarea-field" rows="8" placeholder="[verse]&#10;[chorus]&#10;..."></textarea>
+            </div>
+            <!-- SECCIÓN LORA Y COVER / REFERENCIA YUE 2 -->
+            <div class="form-row">
+              <div class="form-group" style="flex: 2;">
+                <label for="yue2LoraSelect">🧬 LoRA YuE 2 (Estilo / Voz / Acústica):</label>
+                <select id="yue2LoraSelect" class="select-field">
+                  <option value="">Sin LoRA (Modelo base YuE2 puro)</option>
+                </select>
+              </div>
+              <div class="form-group" style="flex: 1;">
+                <label for="yue2LoraScale">Escala LoRA (0.0 – 2.0):</label>
+                <input type="number" id="yue2LoraScale" class="input-field" min="0" max="2" step="0.05" value="1.0">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="yue2RefAudioSelect">🎵 Audio de Referencia / Cover (vocal o armónico):</label>
+              <select id="yue2RefAudioSelect" class="select-field">
+                <option value="">Ninguno (Generación desde cero)</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="yue2Cot">Planificación simbólica (CoT):</label>
+                <select id="yue2Cot" class="select-field">
+                  <option value="full" selected>full (melodía + acordes)</option>
+                  <option value="melody">melody (solo melodía)</option>
+                  <option value="off">off (más rápido)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="yue2Output">Nombre de salida:</label>
+                <input type="text" id="yue2Output" class="input-field" value="yue2_song" placeholder="yue2_song">
+              </div>
+            </div>
+            <div class="btn-group">
+              <button class="btn btn-primary" id="btnRunYue2">▶️ Generar con YuE2 (16GB FP8)</button>
+            </div>
+
+            <!-- MONITOR DE EJECUCIÓN YUE 2 -->
+            <div class="form-group" style="margin-top:16px;">
+              <label for="yue2Monitor">Consola de progreso YuE2 en tiempo real:</label>
+              <div id="yue2Monitor" class="status-box" style="white-space:pre-wrap; min-height:80px; font-family:monospace; background:rgba(0,0,0,0.5); border:1px solid rgba(0,247,255,0.2); padding:10px; border-radius:6px; font-size:0.85rem; color:#bbf;">Sin trabajos activos.</div>
+            </div>
+
+            <!-- REPRODUCTOR INTEGRADO Y ACCIONES DE POSTPRODUCCIÓN YUE 2 -->
+            <div class="card library-card" style="margin-top:20px; background:rgba(0,247,255,0.03); border:1px solid rgba(0,247,255,0.2);">
+              <h3 class="section-subtitle" style="color:#00f7ff; margin-top:0;">🎧 Reproductor de Audio YuE 2 & Acciones Rápidas</h3>
+              <div class="player-box">
+                <audio id="yue2AudioPlayer" controls preload="none" style="width:100%;"></audio>
+                <div class="player-meta" id="yue2AudioPlayerMeta">Ninguna pista cargada. Las pistas generadas se reproducirán aquí automáticamente.</div>
+              </div>
+              <div class="btn-group" style="margin-top:10px;">
+                <button class="btn btn-accent" id="btnYue2MasterTrack" disabled>🎛️ Masterizar EBU R128 (-11 LUFS)</button>
+                <button class="btn btn-secondary" id="btnYue2SendToCover" disabled>🖼️ Crear Portada IA</button>
+                <button class="btn btn-secondary" id="btnYue2SendToVideo" disabled>🎬 Crear Vídeo Cinemático</button>
+              </div>
+
+              <!-- BIBLIOTECA DE PISTAS YUE 2 -->
+              <div class="form-group" style="margin-top:18px;">
+                <label style="font-weight:600; color:#00f7ff;">📂 Pistas recientes YuE 2:</label>
+                <div id="yue2Library" class="library-container"></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>NVIDIA NIM (modelo IA cloud integrado):</label>
+              <div id="nimStatus" class="status-box">Sin probar</div>
+              <button class="btn btn-secondary" id="btnNimTest">🔌 Probar conexión NIM (Nemotron)</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

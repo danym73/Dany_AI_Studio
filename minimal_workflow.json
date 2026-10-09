@@ -1,0 +1,9 @@
+{
+  \"prompt\": {
+    \"1\": {\"inputs\": {\"width\": 512, \"height\": 512, \"batch_size\": 1}, \"type\": \"EmptyLatentImage\"},
+    \"2\": {\"inputs\": {\"seed\": 12345, \"steps\": 20, \"cfg\": 8, \"sampler_name\": \"euler\", \"scheduler\": \"normal\", \"denoise\": 1, \"model\": [\"1\", 0], \"positive\": [\"1\", 0], \"negative\": [\"1\", 0], \"latent_image\": [\"1\", 0]}, \"type\": \"KSampler\"},
+    \"3\": {\"inputs\": {\"samples\": [\"2\", 0]}, \"type\": \"VAEDecode\"},
+    \"4\": {\"inputs\": {\"filename_prefix\": \"test_minimal\", \"images\": [\"3\", 0]}, \"type\": \"SaveImage\"}
+  },
+  \"client_id\": \"minimal-test\"
+}

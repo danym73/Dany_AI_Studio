@@ -1,0 +1,69 @@
+{
+  "server": {
+    "host": "127.0.0.1",
+    "port": 7877,
+    "allowed_hosts": []
+  },
+  "paths": {
+    "acestep_dir": "c:\\Users\\danin\\Documents\\Codex\\2026-07-26\\yo-har-a-la-prueba-de\\ACE-Step-1.5",
+    "comfy_dir": "C:\\Users\\danin\\Desktop\\confy3d\\ComfyUI-Easy-Install\\ComfyUI",
+    "colab_bridge_dir": "G:\\Mi unidad\\Produccion_Musical\\Colab_Bridge",
+    "outputs_dir": "C:\\Users\\danin\\Music\\Nuevas_Producciones_Agente",
+    "shorts_dirs": [
+      "C:\\Users\\danin\\Music\\canal you.m.d\\Shorts_9x16",
+      "C:\\Users\\danin\\Music\\Videos\\Shorts"
+    ],
+    "extra_audio_roots": [
+      "C:\\Users\\danin\\Music"
+    ]
+  },
+  "music": {
+    "lm_model": "acestep-5Hz-lm-1.7B",
+    "inference_steps": 8,
+    "guidance_scale": 7.0,
+    "backend": "pt",
+    "audio_format": "flac",
+    "lora_paths": {
+      "roti-r0kkk": "rock_acestep1.5_v1",
+      "heavy sub": "drumnbass_heavy_sub/v1_sub_64"
+    }
+  },
+  "mastering": {
+    "target_lufs": -11.0,
+    "true_peak": -0.5,
+    "lra": 7.0,
+    "bitrate": "320k"
+  },
+  "yue2": {
+    "dir": "C:/Users/danin/Music/YuE2",
+    "cot": "full",
+    "output_dir": "C:/Users/danin/Music/YuE2/outputs"
+  },
+  "llm": {
+    "enabled": true,
+    "provider": "nim",
+    "base_url": "https://integrate.api.nvidia.com/v1",
+    "model": "google/diffusiongemma-26b-a4b-it",
+    "temperature": 0.8,
+    "timeout_s": 60
+  },
+  "colab": {
+    "require_confirm": true,
+    "max_age_s": 600,
+    "max_dispatch_per_min": 6,
+    "allow_mcp_dispatch": false,
+    "allowed_executables": [
+      "python",
+      "python3"
+    ],
+    "allowed_scripts": [
+      "/content/*.py",
+      "/content/ACE-Step-1.5/*.py",
+      "/content/ComfyUI/*.py",
+      "/content/drive/MyDrive/Produccion_Musical/Colab_Bridge/scripts/*.py"
+    ]
+  },
+  "comfy": {
+    "api_url": "http://127.0.0.1:8188"
+  }
+}

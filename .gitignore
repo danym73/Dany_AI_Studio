@@ -1,0 +1,39 @@
+# Archivos de seguridad y secretos (NUNCA SUBIR)
+secrets.json
+*.env
+*.pem
+*.key
+
+# Logs y auditoría
+logs/
+*.log
+
+# Salidas generadas
+outputs/
+*.zip
+
+# Entorno y caché Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+
+# Backups y temporales
+_backup_*/
+*.tmp
+*.temp
+node_modules/
+package-lock.json
+
+# Archivos pesados multimedia de desarrollo
+branding/infografias/*.mp4
+branding/infografias/*.wav
+
+# IDEs
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,528 @@
+{
+  "8": {
+    "inputs": {
+      "samples": [
+        "31",
+        0
+      ],
+      "vae": [
+        "39",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "Decodificación VAE"
+    }
+  },
+  "31": {
+    "inputs": {
+      "seed": 636821452533030,
+      "steps": [
+        "368",
+        0
+      ],
+      "cfg": [
+        "397",
+        0
+      ],
+      "sampler_name": "ddim",
+      "scheduler": "beta57",
+      "denoise": 1,
+      "model": [
+        "360",
+        0
+      ],
+      "positive": [
+        "387",
+        0
+      ],
+      "negative": [
+        "387",
+        0
+      ],
+      "latent_image": [
+        "263",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "39": {
+    "inputs": {
+      "vae_name": "krea2RealVae_v10.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Cargar VAE"
+    }
+  },
+  "212": {
+    "inputs": {
+      "prompt": [
+        "410",
+        0
+      ],
+      "clip": [
+        "360",
+        1
+      ],
+      "vae": [
+        "39",
+        0
+      ]
+    },
+    "class_type": "TextEncodeQwenImageEditPlus",
+    "_meta": {
+      "title": "Codificación de texto Qwen Image Edit Plus"
+    }
+  },
+  "213": {
+    "inputs": {
+      "clip_name": "qwen3vl_4b_fp8_scaled.safetensors",
+      "type": "krea2",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Cargar CLIP"
+    }
+  },
+  "233": {
+    "inputs": {
+      "upscale_model": [
+        "235",
+        0
+      ],
+      "image": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "ImageUpscaleWithModel",
+    "_meta": {
+      "title": "Ampliar Imagen (usando Modelo)"
+    }
+  },
+  "235": {
+    "inputs": {
+      "model_name": "ESRGAN_4x.pth"
+    },
+    "class_type": "UpscaleModelLoader",
+    "_meta": {
+      "title": "Cargar Modelo de Escala Superior"
+    }
+  },
+  "238": {
+    "inputs": {
+      "value": [
+        "367",
+        0
+      ]
+    },
+    "class_type": "INTConstant",
+    "_meta": {
+      "title": "Width"
+    }
+  },
+  "239": {
+    "inputs": {
+      "value": [
+        "367",
+        1
+      ]
+    },
+    "class_type": "INTConstant",
+    "_meta": {
+      "title": "Height"
+    }
+  },
+  "263": {
+    "inputs": {
+      "width": [
+        "238",
+        0
+      ],
+      "height": [
+        "239",
+        0
+      ],
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Imagen Latente Vacía"
+    }
+  },
+  "316": {
+    "inputs": {
+      "rgthree_comparer": {
+        "images": [
+          {
+            "name": "A",
+            "selected": true,
+            "url": "/api/view?filename=rgthree.compare._temp_hrmad_00003_.png&type=temp&subfolder=&rand=0.5074477202350832"
+          },
+          {
+            "name": "B",
+            "selected": true,
+            "url": "/api/view?filename=rgthree.compare._temp_hrmad_00004_.png&type=temp&subfolder=&rand=0.23209996491222362"
+          }
+        ]
+      },
+      "image_a": [
+        "8",
+        0
+      ],
+      "image_b": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "Image Comparer (rgthree)",
+    "_meta": {
+      "title": "BEFORE AFTER UPSCALE"
+    }
+  },
+  "359": {
+    "inputs": {
+      "unet_name": "krea2_raw_bf16.safetensors",
+      "weight_dtype": "fp8_e4m3fn"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "UNET Loader - Krea2 Turbo FP8"
+    }
+  },
+  "360": {
+    "inputs": {
+      "injection_method": "Standard (Native)",
+      "lora_data": "[{\"enabled\":true,\"name\":\"Krea2-realism-V1.safetensors\",\"strength\":3.65},{\"enabled\":true,\"name\":\"0739 St. Louis Luxurious Wheels dress_v1_pony.safetensors\",\"strength\":0.5}]",
+      "UI": "",
+      "model": [
+        "382",
+        0
+      ],
+      "clip": [
+        "213",
+        0
+      ]
+    },
+    "class_type": "AcademiaSD_MultiLora",
+    "_meta": {
+      "title": "Academia SD Multi-LoRA 💊"
+    }
+  },
+  "361": {
+    "inputs": {
+      "UI": ""
+    },
+    "class_type": "AcademiaSD_Downloader",
+    "_meta": {
+      "title": "Academia SD Automatic downloader ⬇️"
+    }
+  },
+  "363": {
+    "inputs": {
+      "filename_prefix": "Krea2",
+      "target_node_title": "Load Image",
+      "images": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "AcademiaSD_SaveAndSend",
+    "_meta": {
+      "title": "AcademiaSD Image Save & Send 💾🚀"
+    }
+  },
+  "364": {
+    "inputs": {
+      "filename_prefix": "Krea2_Upscaled",
+      "target_node_title": "Load Image",
+      "images": [
+        "233",
+        0
+      ]
+    },
+    "class_type": "AcademiaSD_SaveAndSend",
+    "_meta": {
+      "title": "AcademiaSD Image Save & Send 💾🚀"
+    }
+  },
+  "367": {
+    "inputs": {
+      "preset": "1376x768",
+      "width": 1376,
+      "height": 768,
+      "➗ Half": null,
+      "✖️ Double": null,
+      "🔄 Swap": null,
+      "📐 Get Size": null
+    },
+    "class_type": "AcademiaSD_Resolution",
+    "_meta": {
+      "title": "Resolution Selector"
+    }
+  },
+  "368": {
+    "inputs": {
+      "value": [
+        "395",
+        0
+      ]
+    },
+    "class_type": "INTConstant",
+    "_meta": {
+      "title": "Steps"
+    }
+  },
+  "369": {
+    "inputs": {
+      "conditioning": [
+        "212",
+        0
+      ]
+    },
+    "class_type": "ConditioningZeroOut",
+    "_meta": {
+      "title": "Negative (Zero Out)"
+    }
+  },
+  "377": {
+    "inputs": {
+      "value": 2
+    },
+    "class_type": "PrimitiveInt",
+    "_meta": {
+      "title": "Int"
+    }
+  },
+  "382": {
+    "inputs": {
+      "select": [
+        "377",
+        0
+      ],
+      "sel_mode": false,
+      "input1": [
+        "359",
+        0
+      ],
+      "input2": [
+        "385",
+        0
+      ]
+    },
+    "class_type": "ImpactSwitch",
+    "_meta": {
+      "title": "Switch (Any)"
+    }
+  },
+  "385": {
+    "inputs": {
+      "gguf_name": "Krea-2-Turbo-Q4_K_M.gguf",
+      "dequant_dtype": "default",
+      "patch_dtype": "default",
+      "patch_on_device": true
+    },
+    "class_type": "LoaderGGUFAdvanced",
+    "_meta": {
+      "title": "GGUF Loader (Advanced)"
+    }
+  },
+  "387": {
+    "inputs": {
+      "multiplier": 4,
+      "per_layer_weights": "1.0,1.0,1.0,1.0,1.0,1.0,1.0,2.5,5.0,1.1,4.0,1.0",
+      "conditioning": [
+        "212",
+        0
+      ]
+    },
+    "class_type": "ConditioningKrea2Rebalance",
+    "_meta": {
+      "title": "Conditioning Krea2 Rebalance"
+    }
+  },
+  "390": {
+    "inputs": {
+      "Number": "1"
+    },
+    "class_type": "Float",
+    "_meta": {
+      "title": "CFG"
+    }
+  },
+  "392": {
+    "inputs": {
+      "value": 8
+    },
+    "class_type": "INTConstant",
+    "_meta": {
+      "title": "Steps"
+    }
+  },
+  "393": {
+    "inputs": {
+      "Number": "4"
+    },
+    "class_type": "Float",
+    "_meta": {
+      "title": "CFG"
+    }
+  },
+  "394": {
+    "inputs": {
+      "value": 52
+    },
+    "class_type": "INTConstant",
+    "_meta": {
+      "title": "Steps"
+    }
+  },
+  "395": {
+    "inputs": {
+      "select": 1,
+      "sel_mode": false,
+      "input1": [
+        "392",
+        0
+      ],
+      "input2": [
+        "394",
+        0
+      ]
+    },
+    "class_type": "ImpactSwitch",
+    "_meta": {
+      "title": "Switch Steps"
+    }
+  },
+  "397": {
+    "inputs": {
+      "select": 1,
+      "sel_mode": false,
+      "input1": [
+        "390",
+        0
+      ],
+      "input2": [
+        "393",
+        0
+      ]
+    },
+    "class_type": "ImpactSwitch",
+    "_meta": {
+      "title": "Switch CFG"
+    }
+  },
+  "401": {
+    "inputs": {
+      "value": "You are an expert prompt engineer for text-to-image models and image-to-text. Your task is to expand the user's prompt into a highly effective image-generation prompt.\n\nThink step by step about the request before writing the answer:\n- What is the subject and mood?\n- What visual styles, mediums, and lighting options would fit? Consider two or three alternatives and pick the one that best serves the caption.\n- What composition, framing, and grounded details will help the text-to-image model?\n\nThen output a single expanded prompt paragraph.\n\nFollow these rules strictly:\n1. **Faithfulness First:** Preserve all original subjects, actions, colors, and spatial relationships. Do not add new objects, props, characters, or animals unless the user clearly implies them.\n2. **Practical T2I Structure:** Write a prompt that a text-to-image model can parse cleanly. Group subjects with their own attributes and actions. Use grounded phrasing for poses, interactions, and spatial layout.\n3. **Style Planning Stays Internal:** Use your internal reasoning to choose style, medium, framing, and lighting. Do not emit planning tags or wrappers in the visible answer body.\n4. **Text Rendering:** If the user requests visible text, quotes, labels, or typography, specify the exact text clearly and wrap requested words in quotes.\n5. **Avoid Over-Specification:** Do not invent highly specific clothing, colors, materials, or scene details unless the input supports them.\n6. **Structure:** Write one cohesive paragraph after the thinking block. No bullets, JSON, or markdown.\n7. **Respect Existing Detail:** If the user's prompt is already detailed, lightly polish and finalize rather than heavily expanding — preserve their phrasing and direction.\n8. **Respect the Human Form:** Treat depictions of people with dignity. Assume clothing covers genitals and intimate anatomy.\n9. **Preserve User Medium:** When the user explicitly requests a medium (e.g. \"photo of\", \"photograph of\", \"illustration of\", \"painting of\", \"sketch of\", \"3D render of\"), honor it. Do not pivot to a different medium to avoid difficulty — match the user's stated intent.\n10. **If the reference is an image, extract the characters, objects, styles, and other characteristics from the image.\n11. **Display only the Final expanded prompt as output; do not show the reasoning steps.\n\nUser's Input:\n\n"
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "Text String (System Prompt)"
+    }
+  },
+  "402": {
+    "inputs": {
+      "string_a": [
+        "401",
+        0
+      ],
+      "string_b": [
+        "408",
+        0
+      ],
+      "delimiter": ""
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Concatenar"
+    }
+  },
+  "403": {
+    "inputs": {
+      "prompt": [
+        "402",
+        0
+      ],
+      "max_length": 512,
+      "sampling_mode": "on",
+      "sampling_mode.temperature": 0.7,
+      "sampling_mode.top_k": 64,
+      "sampling_mode.top_p": 0.95,
+      "sampling_mode.min_p": 0.05,
+      "sampling_mode.repetition_penalty": 1.05,
+      "sampling_mode.seed": 0,
+      "sampling_mode.presence_penalty": 0,
+      "thinking": true,
+      "use_default_template": true,
+      "mtp": "auto",
+      "clip": [
+        "213",
+        0
+      ]
+    },
+    "class_type": "TextGenerate",
+    "_meta": {
+      "title": "TextGenerate"
+    }
+  },
+  "405": {
+    "inputs": {
+      "source": [
+        "403",
+        0
+      ]
+    },
+    "class_type": "PreviewAny",
+    "_meta": {
+      "title": "Vista previa de cualquier"
+    }
+  },
+  "408": {
+    "inputs": {
+      "value": "\nUn escenario de atmósfera heavy rock sin personas, con luces cálidas y dramáticas que se filtran a través de un techo de metal oxidado y vigas expuestas, envuelto en una densa niebla azulada que se desliza entre los cables y tuberías retorcidos; el suelo está cubierto de polvo brillante y restos de neón apagado, mientras que en el fondo se alzan altas columnas de piedra oscura con grietas iluminadas por focos de bajo ángulo, todo bajo una iluminación de contraluz que crea sombras profundas y reflejos metálicos, evocando la intensidad y el caos de un concierto en ruinas."
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "Prompt"
+    }
+  },
+  "410": {
+    "inputs": {
+      "select": [
+        "412",
+        0
+      ],
+      "sel_mode": false,
+      "input1": [
+        "408",
+        0
+      ],
+      "input2": [
+        "405",
+        0
+      ]
+    },
+    "class_type": "ImpactSwitch",
+    "_meta": {
+      "title": "Switch Prompt"
+    }
+  },
+  "412": {
+    "inputs": {
+      "value": 2
+    },
+    "class_type": "INTConstant",
+    "_meta": {
+      "title": "Int"
+    }
+  }
+}

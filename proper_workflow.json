@@ -1,0 +1,11 @@
+{
+  \"prompt\": {
+    \"1\": {\"inputs\": {\"ckpt_name\": \"v1-5-pruned.ckpt\"}, \"type\": \"CheckpointLoaderSimple\"},
+    \"2\": {\"inputs\": {\"width\": 1024, \"height\": 1024, \"batch_size\": 1}, \"type\": \"EmptyLatentImage\"},
+    \"3\": {\"inputs\": {\"text\": \"portada de álbum musical con título artístico, estilo profesional, iluminación dramática, colores vibrantes, diseño atractivo para música\", \"clip\": [\"1\", 0]}, \"type\": \"CLIPTextEncode\"},
+    \"4\": {\"inputs\": {\"seed\": 123456789, \"steps\": 25, \"cfg\": 7, \"sampler_name\": \"euler\", \"scheduler\": \"normal\", \"denoise\": 1, \"model\": [\"1\", 0], \"positive\": [\"3\", 0], \"negative\": [\"3\", 0], \"latent_image\": [\"2\", 0]}, \"type\": \"KSampler\"},
+    \"5\": {\"inputs\": {\"samples\": [\"4\", 0], \"vae\": [\"1\", 0]}, \"type\": \"VAEDecode\"},
+    \"6\": {\"inputs\": {\"filename_prefix\": \"Qwen_cover_direct\", \"images\": [\"5\", 0]}, \"type\": \"SaveImage\"}
+  },
+  \"client_id\": \"cover-direct-gen\"
+}
