@@ -1,4 +1,8 @@
-# DANY AI STUDIO v2.1 - LEEME PRIMERO
+# DANY AI STUDIO v2.7 - LEEME PRIMERO
+
+## Enlaces Oficiales de Descarga
+- **Archivo ZIP directo:** https://drive.google.com/file/d/1HYgh8zT_oPAcZ1xTuGFkmjYjswdxm7nc/view?usp=sharing
+- **Carpeta completa compartida:** https://drive.google.com/drive/folders/122G3iczOwqzD1Lgx8QX-0m18UQUBp6_3?usp=sharing
 
 ## Arranque
 1. `install.bat` (una vez): comprueba Python, GPU y FFmpeg y crea `config.json` y `secrets.json`.

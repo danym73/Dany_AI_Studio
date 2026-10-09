@@ -214,7 +214,7 @@
 
 ```
 🚀 DESCARGA GRATIS DANY AI STUDIO (Google Drive):
-👉 [ENLACE_DRIVE]
+👉 https://drive.google.com/file/d/1HYgh8zT_oPAcZ1xTuGFkmjYjswdxm7nc/view?usp=sharing
 
 ¿Una canción completa de más de 3 minutos con IA en solo 10 segundos?
 En este tutorial te explico cómo construí una suite híbrida que combina
