@@ -4,6 +4,7 @@
 > *Dany AI Studio es una suite audiovisual híbrida para Windows y Google Colab. Incluye la interfaz web completa para componer canciones con ACE-Step 1.5 y YuE 2, generar portadas en alta resolución con Krea-2 Turbo (ComfyUI + Qwen3-VL), masterizar audio a estándar EBU R128 (-11 LUFS), crear vídeos cinemáticos y conectar con GPU en la nube sin saturar la VRAM.*
 
 [![Version](https://img.shields.io/badge/version-2.7-cyan.svg)](https://github.com/danym73/Dany_AI_Studio)
+[![YouTube Tutorial](https://img.shields.io/badge/YouTube-Tutorial%20Oficial-red.svg?logo=youtube)](https://www.youtube.com/watch?v=6xXdZtV8vSc)
 [![Engine](https://img.shields.io/badge/audio-ACE--Step%201.5%20%7C%20YuE%202-purple.svg)](https://huggingface.co/ACE-Step/Ace-Step1.5)
 [![Visual](https://img.shields.io/badge/covers-Krea--2%20Turbo-blue.svg)](#)
 [![Video](https://img.shields.io/badge/video-LTX--2.5%20%7C%20MiniMax%20H3-orange.svg)](#)
@@ -105,9 +106,19 @@ Dany_AI_Studio/
 
 ---
 
+## 📺 Tutorial en YouTube & Demostración
+
+Aprende a instalar y exprimir todas las funciones de la suite paso a paso con los vídeos oficiales:
+
+- 🎬 **Tutorial Maestro 16:9:** [Crea Música y Vídeo con IA GRATIS (Dany AI Studio)](https://www.youtube.com/watch?v=6xXdZtV8vSc)
+- 📱 **Short / Reel 9:16:** [Demostración Rápida en YouTube Shorts](https://www.youtube.com/shorts/Wqs7DDYHqG4)
+- 🔔 **Canal Oficial:** [Suscríbete a Daniel Marius en YouTube](https://www.youtube.com/@danielmarius-c4v?sub_confirmation=1)
+
+---
+
 ## 🤝 Comunidad y Soporte
 
-- 📺 **Tutoriales y Nuevos Modelos:** Canal de YouTube de Daniel Marius
+- 📺 **Vídeos y Nuevas Funciones:** [Canal de Daniel Marius en YouTube](https://www.youtube.com/@danielmarius-c4v)
 - 💬 **Sugerencias y Problemas:** Abre un [Issue en GitHub](https://github.com/danym73/Dany_AI_Studio/issues)
 
 ---
@@ -115,4 +126,3 @@ Dany_AI_Studio/
 ## 📄 Licencia
 
 Este proyecto se distribuye bajo la licencia **MIT**. Eres libre de usarlo, modificarlo y compartirlo para producciones personales y comerciales.
->>>>>>> c1f2f7e (docs: add comprehensive README.md with architecture, features, and setup instructions)
